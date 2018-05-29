@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number">
+    <input id="second-number">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+       var num_1=document.getElementById("first-number");
+       var num_2=document.getElementById("second-number");
+       var result;
+       function add(x,y){
+        result= parseInt(x.value)+parseInt(y.value);
+       }
+       function minus(x,y){
+        result= parseInt(x.value)-parseInt(y.value);
+       }
+       function times(x,y){
+        result= parseInt(x.value)*parseInt(y.value);
+       }
+       function divide(x,y){
+        result= parseInt(x.value)/parseInt(y.value);
+       }
+       function count(){
+           document.getElementById("result").innerHTML=result;
+       }
+       function verify(){
+           if(num_1.value==""||num_2.value==""){
+               alert(" 不能为空！")
+           }else if(isNaN(num_1.value)||isNaN(num_2.value)){
+               alert(" 请填写数字！")
+           }else{
+               return true;
+           }
+       }
+       document.getElementById("add-btn").onclick=function() {
+           if(verify()){
+            add(num_1,num_2);
+           count();
+           }     
+       };
+       document.getElementById("minus-btn").onclick=function() {
+           if(verify()){
+            minus(num_1,num_2);
+           count();
+           } 
+       };
+       document.getElementById("times-btn").onclick=function() {
+           if(verify()){
+            times(num_1,num_2);
+           count();
+           } 
+       };
+       document.getElementById("divide-btn").onclick=function() {
+           if(verify()){
+            divide(num_1,num_2);
+           count();
+           } 
+       };
+    </script>
+</body>
+</html>
